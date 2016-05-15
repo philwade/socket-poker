@@ -26,9 +26,9 @@ def create():
     if form.validate_on_submit():
         session['name'] = form.name.data
         session['username'] = form.username.data
-        return redirect(url_for('.session', form.name.data))
+        return redirect(url_for('session', form.name.data))
 
-    return render_template('create.html')
+    return render_template('create.html', form=form)
 
 if __name__ == '__main__':
     socketio.run(app)

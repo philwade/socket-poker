@@ -1,2 +1,7 @@
-Start a new session:
-<input type="text"/>
+{% extends "layout.html" %}
+{% block body %}
+	Start a new session:
+	{{ form.name.label }}: {{ form.name() }} {% for error in form.name.errors %}{{ error }}{% endfor %}<br>
+	{{ form.username.label }}: {{ form.username() }} {% for error in form.username.errors %}{{ error }}{% endfor %}<br>
+	{{ form.submit() }}
+{% endblock %}
