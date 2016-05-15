@@ -24,9 +24,9 @@ def create():
     form = CreateForm()
 
     if form.validate_on_submit():
-        session['name'] = form.name.data
+        session['sessionName'] = form.sessionName.data
         session['username'] = form.username.data
-        return redirect(url_for('session', form.name.data))
+        return redirect(url_for('session', form.sessionName.data))
 
     return render_template('create.html', form=form)
 
