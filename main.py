@@ -5,9 +5,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'get sauced bruh'
 socketio = SocketIO(app)
 
-@app.route('/session/<string: token>')
+@app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/session/<token>')
+def session():
+    return render_template('session.html')
 
 @app.route('/join')
 def join():
