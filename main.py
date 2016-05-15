@@ -19,7 +19,7 @@ def session(token):
 def join():
     return render_template('join.html')
 
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create():
     form = CreateForm()
 
