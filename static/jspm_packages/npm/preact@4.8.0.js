@@ -1,0 +1,1 @@
+module.exports = require("npm:preact@4.8.0/dist/preact.js");
