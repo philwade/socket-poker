@@ -19,7 +19,6 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.6",
     "jsx": "npm:jspm-loader-jsx@0.0.7",
-    "preact": "npm:preact@4.8.0",
     "react": "npm:react@15.1.0",
     "react-dom": "npm:react-dom@15.1.0",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -201,9 +200,6 @@ System.config({
       "upper-case-first": "npm:upper-case-first@1.1.2"
     },
     "npm:path-browserify@0.0.0": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:preact@4.8.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:process-nextick-args@1.0.7": {

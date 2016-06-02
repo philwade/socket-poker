@@ -1,1 +1,0 @@
-module.exports = require("npm:lower-case@1.1.3/lower-case.js");
