@@ -36,10 +36,16 @@ let state = {
 	]
 };
 ReactDOM.render(
-	<div>
-		<IssueList issues={state.issues} />
-		<Chat messages={state.messages} />
-		<UserList users={state.users} />
-		<VotingPanel values={state.voteValues} />
+	<div className="cyan darken-1">
+		<div className="row">
+			<div className="col s6">
+				<IssueList issues={state.issues} />
+			</div>
+			<div className="col s6">
+				<Chat messages={state.messages} />
+				<UserList users={state.users} />
+				<VotingPanel values={state.voteValues} />
+			</div>
+		</div>
 	</div>
 	, document.querySelector('.root'));
