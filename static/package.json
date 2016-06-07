@@ -12,7 +12,8 @@
     "dependencies": {
       "jsx": "npm:jspm-loader-jsx@^0.0.7",
       "react": "npm:react@^15.1.0",
-      "react-dom": "npm:react-dom@^15.1.0"
+      "react-dom": "npm:react-dom@^15.1.0",
+      "redux": "npm:redux@^3.5.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

@@ -21,6 +21,7 @@ System.config({
     "jsx": "npm:jspm-loader-jsx@0.0.7",
     "react": "npm:react@15.1.0",
     "react-dom": "npm:react-dom@15.1.0",
+    "redux": "npm:redux@3.5.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -181,6 +182,10 @@ System.config({
       "source-map": "npm:source-map@0.1.31",
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
+    "npm:lodash@4.13.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:loose-envify@1.2.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "js-tokens": "npm:js-tokens@1.0.3",
@@ -260,6 +265,13 @@ System.config({
       "process-nextick-args": "npm:process-nextick-args@1.0.7",
       "string_decoder": "npm:string_decoder@0.10.31",
       "util-deprecate": "npm:util-deprecate@1.0.2"
+    },
+    "npm:redux@3.5.2": {
+      "lodash": "npm:lodash@4.13.1",
+      "lodash-es": "npm:lodash-es@4.13.1",
+      "loose-envify": "npm:loose-envify@1.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "symbol-observable": "npm:symbol-observable@0.2.4"
     },
     "npm:sentence-case@1.1.3": {
       "lower-case": "npm:lower-case@1.1.3"

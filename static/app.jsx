@@ -5,7 +5,11 @@ import UserList from 'components/userList.jsx!';
 import IssueList from 'components/issueList.jsx!';
 import VotingPanel from 'components/votingPanel.jsx!';
 
-let state = {
+import { createStore } from 'redux';
+import { vote } from './actions/index.js';
+import pokerApp from './reducers/index.js';
+
+let initialState = {
 	currentUser: 'guy',
 	messages: [
 		{ id: 1, author: 'guy', content: 'hello' },
@@ -35,6 +39,16 @@ let state = {
 		'💯'
 	]
 };
+let store = createStore(pokerApp, initialState);
+
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
+let state = store.getState();
+store.dispatch(vote(0, '40'));
+
+
 ReactDOM.render(
 	<div className="cyan darken-1">
 		<div className="row">
