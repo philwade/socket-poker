@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Chat from 'components/chat.jsx!';
-import UserList from 'components/userList.jsx!';
-import IssueList from 'components/issueList.jsx!';
-import VotingPanel from 'components/votingPanel.jsx!';
-
+import { h, Component } from 'preact';
+import { Router } from 'preact-router';
 import { createStore } from 'redux';
-import { vote } from './actions/index.js';
-import pokerApp from './reducers/index.js';
+import { vote } from '../actions';
+import pokerApp from '../reducers';
+
+import Header from './header';
+import Home from './home';
+import Profile from './profile';
 
 let initialState = {
 	currentUser: 'guy',
@@ -40,7 +39,6 @@ let initialState = {
 	]
 };
 let store = createStore(pokerApp, initialState);
-
 store.subscribe(() => {
 	console.log(store.getState());
 });
@@ -49,17 +47,25 @@ let state = store.getState();
 store.dispatch(vote(0, '40'));
 
 
-ReactDOM.render(
-	<div className="cyan darken-1">
-		<div className="row">
-			<div className="col s6">
-				<IssueList issues={state.issues} />
+
+export default class App extends Component {
+	/** Gets fired when the route changes.
+	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
+	 *	@param {string} event.url	The newly routed URL
+	 */
+	handleRoute = e => {
+		this.currentUrl = e.url;
+	};
+
+	render() {
+		return (
+			<div id="app">
+				<Router onChange={this.handleRoute}>
+					<Home path="/" />
+					<Profile path="/profile/" user="me" />
+					<Profile path="/profile/:user" />
+				</Router>
 			</div>
-			<div className="col s6">
-				<Chat messages={state.messages} />
-				<UserList users={state.users} />
-				<VotingPanel values={state.voteValues} />
-			</div>
-		</div>
-	</div>
-	, document.querySelector('.root'));
+		);
+	}
+}

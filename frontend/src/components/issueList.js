@@ -1,7 +1,7 @@
-import React from 'react';
-import IssueCard from 'components/issueCard.jsx!';
+import { h, Component } from 'preact';
+import IssueCard from 'components/issueCard.js';
 
-class IssueList extends React.Component {
+class IssueList extends Component {
 	render() {
 		let cards = this.props.issues.map((issue) => {
 			return <IssueCard key={issue.id} issue={issue}/>;

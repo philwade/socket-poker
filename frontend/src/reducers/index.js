@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import users from 'reducers/users.js';
+import users from './users';
 
 const defaultState = {
 	currentUser: null,

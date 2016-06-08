@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-class Chat extends React.Component{
-    render() {
-		let messages = this.props.messages.map((message) => {
+class Chat extends Component{
+    render(props, state) {
+		let messages = props.messages.map((message) => {
 			return <div key={message.id} className="message"><strong>{ message.author }</strong>: { message.content }</div>
 		});
 		return (

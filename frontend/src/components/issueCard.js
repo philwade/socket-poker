@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-class IssueCard extends React.Component {
+class IssueCard extends Component {
 	render() {
 		return (
 			<div className="card">

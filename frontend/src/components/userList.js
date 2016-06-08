@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-class UserList extends React.Component {
+class UserList extends Component {
 	render() {
 		let users = this.props.users.map((user) => {
 			return (
