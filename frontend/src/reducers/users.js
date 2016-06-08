@@ -1,9 +1,9 @@
 const users = (users = [], action) => {
-	switch(action.type) {
+	switch (action.type) {
 		case 'VOTE':
 			return  {
 				users: users.map((user) => {
-					if(user.id === action.userId) {
+					if (user.id === action.userId) {
 						return { ...user, vote: action.vote};
 					}
 					return user;
@@ -12,5 +12,5 @@ const users = (users = [], action) => {
 		default:
 			return users;
 	}
-}
+};
 export default users;
