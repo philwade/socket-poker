@@ -1,3 +1,6 @@
+import { combineReducers } from 'redux';
+import users from 'reducers/users.js';
+
 const defaultState = {
 	currentUser: null,
 	messages: [],
@@ -19,20 +22,7 @@ const defaultState = {
 		'💯'
 	]
 };
-const poker = (state = defaultState, action) => {
-	switch(action.type) {
-		case 'VOTE':
-			return  {
-				...state,
-				users: state.users.map((user) => {
-					if(user.id === action.userId) {
-						return { ...user, vote: action.vote};
-					}
-					return user;
-				})
-			};
-		default:
-			return state;
-	}
-}
+const poker = combineReducers({
+	users
+});
 export default poker;
