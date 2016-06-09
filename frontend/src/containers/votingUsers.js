@@ -8,3 +8,5 @@ const mapStateToProps = (state) => {
 }
 
 const votingUsers = connect(mapStateToProps)(UserList);
+
+export default votingUsers;
