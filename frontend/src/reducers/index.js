@@ -1,28 +1,16 @@
 import { combineReducers } from 'redux';
 import users from './users';
+import voteValues from './voteValues';
 
 const defaultState = {
 	currentUser: null,
 	messages: [],
 	users: [],
 	issues: [],
-	voteValues: [
-		'0',
-		'1/2',
-		'1',
-		'2',
-		'3',
-		'5',
-		'8',
-		'13',
-		'20',
-		'40',
-		'100',
-		'?',
-		'💯'
-	]
+	voteValues: []
 };
 const poker = combineReducers({
-	users
+	users,
+	voteValues
 });
 export default poker;

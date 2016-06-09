@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
 import style from './style';
 import Chat from './chat';
-import UserList from './userList';
+import VotingUsers from '../../containers/votingUsers';
 import IssueList from './issueList';
 import VotingPanel from './votingPanel';
 
-let initialState = {
+let state = {
 	currentUser: 'guy',
 	messages: [
 		{ id: 1, author: 'guy', content: 'hello' },
@@ -35,7 +35,7 @@ let initialState = {
 		'💯'
 	]
 };
-let state = initialState;
+
 export default class Home extends Component {
 	render() {
 		return (
@@ -46,7 +46,7 @@ export default class Home extends Component {
 					</div>
 					<div className="col s6">
 						<Chat messages={state.messages} />
-						<UserList users={state.users} />
+						<VotingUsers />
 						<VotingPanel values={state.voteValues} />
 					</div>
 				</div>

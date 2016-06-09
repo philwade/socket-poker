@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import { createStore } from 'redux';
+import { Provider } from 'preact-redux';
 import { vote } from '../actions';
 import pokerApp from '../reducers';
 
@@ -60,11 +61,13 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Router onChange={this.handleRoute}>
-					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
-				</Router>
+				<Provider store={store}>
+					<Router onChange={this.handleRoute}>
+						<Home path="/" />
+						<Profile path="/profile/" user="me" />
+						<Profile path="/profile/:user" />
+					</Router>
+				</Provider>
 			</div>
 		);
 	}
