@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 import style from './style';
-import Chat from '../chat.js';
-import UserList from '../userList.js';
-import IssueList from '../issueList.js';
-import VotingPanel from '../votingPanel.js';
+import Chat from './chat';
+import UserList from './userList';
+import IssueList from './issueList';
+import VotingPanel from './votingPanel';
 
 let initialState = {
 	currentUser: 'guy',

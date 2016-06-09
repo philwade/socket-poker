@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import IssueCard from 'components/issueCard.js';
+import IssueCard from './issueCard';
 
 class IssueList extends Component {
 	render() {
