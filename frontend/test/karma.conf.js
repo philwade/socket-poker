@@ -10,7 +10,8 @@ module.exports = function(config) {
 		browsers: ['PhantomJS'],
 
 		files: [
-			'test/browser/**/*.js'
+			'test/browser/**/*.js',
+			'test/actions/**/*.js',
 		],
 
 		preprocessors: {

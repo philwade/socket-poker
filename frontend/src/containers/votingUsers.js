@@ -5,7 +5,7 @@ const mapStateToProps = (state) => {
 	return {
 		users: state.users
 	};
-}
+};
 
 const votingUsers = connect(mapStateToProps)(UserList);
 

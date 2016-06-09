@@ -5,8 +5,8 @@ import VotingPanel from '../components/home/votingPanel';
 const mapStateToProps = (state) => {
 	return {
 		voteValues: state.voteValues,
-		userId: 1,
-	}
+		userId: 1
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -27,7 +27,7 @@ describe('App', () => {
 		it('should render the homepage', () => {
 			render(<App />, scratch);
 
-			expect(scratch.innerHTML).to.contain('row');
+			expect(scratch.innerHTML).to.contain('Poker');
 		});
 
 		it('should render /profile', () => {
