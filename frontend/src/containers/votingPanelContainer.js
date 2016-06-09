@@ -4,21 +4,22 @@ import VotingPanel from '../components/home/votingPanel';
 
 const mapStateToProps = (state) => {
 	return {
-		votingUsers: state.voteValues.map((value) => {
-			return { userId: 0, value };
-		})
+		voteValues: state.voteValues,
+		userId: 1,
 	}
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		voteClick: (userId, value) => dispatch(vote(userId, value))
+		voteClick: (userId, value) => {
+			dispatch(vote(userId, value));
+		}
 	};
-}
+};
 
-const VotingPanelContainer = connect({
+const VotingPanelContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-})(VotingPanel);
+)(VotingPanel);
 
 export default VotingPanelContainer;

@@ -14,7 +14,7 @@ let defaults = [
 	'💯'
 ];
 
-const voteValues = (votesValues = defaults, action) => {
-	return voteValues;
-}
+const voteValues = (values = defaults, action) => {
+	return values;
+};
 export default voteValues;
