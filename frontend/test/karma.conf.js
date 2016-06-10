@@ -12,6 +12,7 @@ module.exports = function(config) {
 		files: [
 			'test/browser/**/*.js',
 			'test/actions/**/*.js',
+			'test/reducers/**/*.js',
 		],
 
 		preprocessors: {
