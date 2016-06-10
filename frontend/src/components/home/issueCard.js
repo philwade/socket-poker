@@ -16,7 +16,7 @@ class IssueCard extends Component {
 							<input type="text" value={this.props.issue.title}/>
 						</div>
 						<div class="input-field col s6">
-							<textarea value={this.props.issue.description}></textarea>
+							<textarea value={this.props.issue.content}></textarea>
 						</div>
 					</div>
 				</div>

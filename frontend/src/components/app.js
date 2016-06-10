@@ -15,11 +15,7 @@ let initialState = {
 		{ id: 1, name: 'guy', vote: '' },
 		{ id: 0, name: 'someoneelse', vote: 10 },
 		{ id: 2, name: 'me', vote: 101 }
-	],
-	issues: [
-		{ id: 1, title: 'Add Socket Support', description: 'Update the UI via socket responses', score: '' },
-		{ id: 0, title: 'Custom Votes', description: 'Allow custom voting numbers', score: '' }
-	],
+	]
 };
 let store = createStore(pokerApp, initialState);
 store.subscribe(() => {

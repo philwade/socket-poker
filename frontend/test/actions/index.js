@@ -1,4 +1,5 @@
 import { vote, VOTE } from 'actions';
+import { update_issue, UPDATE_ISSUE } from 'actions';
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -14,6 +15,21 @@ describe('Actions', () => {
 			};
 
 			expect(vote(userId, value)).to.eql(expected);
+		});
+	});
+
+	describe('update issue', () => {
+		it('should create an update issue action', () => {
+			let title = 'A new issue';
+			let content = 'A description of the issue';
+
+			let expected = {
+				type: UPDATE_ISSUE,
+				title,
+				content
+			};
+
+			expect(update_issue(title, content)).to.eql(expected);
 		});
 	});
 });
