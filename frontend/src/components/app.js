@@ -44,11 +44,6 @@ store.subscribe(() => {
 	console.log(store.getState());
 });
 
-let state = store.getState();
-store.dispatch(vote(0, '40'));
-
-
-
 export default class App extends Component {
 	/** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
@@ -60,8 +55,8 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div id="app">
-				<h1>Socket Poker</h1>
+			<div id="app" class="cyan darken-1">
+				<Header />
 				<Provider store={store}>
 					<Router onChange={this.handleRoute}>
 						<Home path="/" />
