@@ -9,11 +9,11 @@ describe('Actions', () => {
 
 			let expected = {
 				type: VOTE,
-				userid: 100,
-				value: '100'
+				userId: 100,
+				vote: '100'
 			};
 
-			expect(vote(userId, value)).toEqual(expected);
+			expect(vote(userId, value)).to.eql(expected);
 		});
 	});
 });

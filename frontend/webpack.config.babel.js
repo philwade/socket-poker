@@ -26,6 +26,7 @@ module.exports = {
 		],
 		alias: {
 			components: `${__dirname}/src/components`,		// used for tests
+			actions: `${__dirname}/src/actions`,		// used for tests
 			style: `${__dirname}/src/style`,
 			'react': 'preact-compat',
 			'react-dom': 'preact-compat'
