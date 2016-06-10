@@ -12,9 +12,9 @@ let state = {
 export default class Home extends Component {
 	render() {
 		return (
-			<div className="cyan darken-1">
-				<div className="row">
-					<div className="col s8 offset-s2">
+			<div class="cyan darken-1">
+				<div class="row">
+					<div class="col s8 offset-s2">
 						<IssueCard issue={state.currentIssue} />
 						<VotingUsers />
 						<VotingPanelContainer />

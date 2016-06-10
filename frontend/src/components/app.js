@@ -10,34 +10,16 @@ import Home from './home';
 import Profile from './profile';
 
 let initialState = {
-	currentUser: 'guy',
-	messages: [
-		{ id: 1, author: 'guy', content: 'hello' },
-		{ id: 0, author: 'someoneelse', content: 'whattaup' }
-	],
+	currentUser: 0,
 	users: [
 		{ id: 1, name: 'guy', vote: '' },
-		{ id: 0, name: 'someoneelse', vote: 10 }
+		{ id: 0, name: 'someoneelse', vote: 10 },
+		{ id: 2, name: 'me', vote: 101 }
 	],
 	issues: [
 		{ id: 1, title: 'Add Socket Support', description: 'Update the UI via socket responses', score: '' },
 		{ id: 0, title: 'Custom Votes', description: 'Allow custom voting numbers', score: '' }
 	],
-	voteValues: [
-		'0',
-		'1/2',
-		'1',
-		'2',
-		'3',
-		'5',
-		'8',
-		'13',
-		'20',
-		'40',
-		'100',
-		'?',
-		'💯'
-	]
 };
 let store = createStore(pokerApp, initialState);
 store.subscribe(() => {
