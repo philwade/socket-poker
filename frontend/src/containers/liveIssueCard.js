@@ -10,12 +10,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		saveIssue: (title = false, content = false) => {
-			dispatch(update_issue(title, content));
+		saveIssue: (issue) => {
+			dispatch(update_issue(issue.title, issue.content));
 		}
 	};
 };
 
-const LiveIssueCard = connect(mapStateToProps)(IssueCard);
+const LiveIssueCard = connect(mapStateToProps, mapDispatchToProps)(IssueCard);
 
 export default LiveIssueCard;

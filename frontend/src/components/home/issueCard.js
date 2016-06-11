@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 
 class IssueCard extends Component {
-	render() {
+	render({ saveIssue }) {
 		return (
 			<div class="card blue-grey darken-1 issue">
 				<div class="card-content white-text activator">
@@ -13,10 +13,10 @@ class IssueCard extends Component {
 					<span class="card-title">Edit Issue <i class="material-icons right">close</i></span>
 					<div class="row">
 						<div class="input-field col s6">
-							<input type="text" value={this.props.issue.title}/>
+							<input type="text" value={this.props.issue.title} onChange={(e) => saveIssue({'title': e.target.value})}/>
 						</div>
 						<div class="input-field col s6">
-							<textarea value={this.props.issue.content}></textarea>
+							<textarea value={this.props.issue.content} onChange={(e) => saveIssue({'content': e.target.value})}></textarea>
 						</div>
 					</div>
 				</div>
