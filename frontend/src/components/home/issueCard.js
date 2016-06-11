@@ -7,7 +7,7 @@ class IssueCard extends Component {
 				<div class="card-content white-text activator">
 					<span class="card-title activator">{this.props.issue.title}<i class="material-icons right">mode edit</i></span>
 					<p><b>Score:</b>{this.props.issue.score}</p>
-					<p>{this.props.issue.description}</p>
+					<p>{this.props.issue.content}</p>
 				</div>
 				<div class="card-reveal">
 					<span class="card-title">Edit Issue <i class="material-icons right">close</i></span>
