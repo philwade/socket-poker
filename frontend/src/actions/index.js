@@ -1,5 +1,6 @@
 export const VOTE = 'VOTE';
 export const UPDATE_ISSUE = 'UPDATE_ISSUE';
+export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
 export const vote = (userId, value) => {
 	return {
 		type: VOTE,
@@ -13,5 +14,11 @@ export const update_issue = (title, content) => {
 		type: UPDATE_ISSUE,
 		title,
 		content
+	};
+};
+
+export const toggle_vote_visibility = () => {
+	return {
+		type: TOGGLE_VOTE_VISIBILITY
 	};
 };

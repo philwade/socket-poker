@@ -1,5 +1,6 @@
 import { vote, VOTE } from 'actions';
 import { update_issue, UPDATE_ISSUE } from 'actions';
+import { toggle_vote_visibility, TOGGLE_VOTE_VISIBILITY } from 'actions';
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -30,6 +31,16 @@ describe('Actions', () => {
 			};
 
 			expect(update_issue(title, content)).to.eql(expected);
+		});
+	});
+
+	describe('toggle vote visiblity', () => {
+		it('should create a toggle action', () => {
+			let expected = {
+				type: TOGGLE_VOTE_VISIBILITY
+			};
+
+			expect(toggle_vote_visibility()).to.eql(expected);
 		});
 	});
 });

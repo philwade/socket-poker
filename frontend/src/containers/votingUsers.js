@@ -3,7 +3,8 @@ import UserList from '../components/home/userList';
 
 const mapStateToProps = (state) => {
 	return {
-		users: state.users
+		users: state.users,
+		votesVisible: state.voteVisibility
 	};
 };
 

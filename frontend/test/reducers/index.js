@@ -1,6 +1,7 @@
 import users from 'reducers/users';
 import currentIssue from 'reducers/currentIssue';
-import { VOTE, UPDATE_ISSUE } from 'actions';
+import voteVisibility from 'reducers/voteVisibility';
+import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY } from 'actions';
 
 /*global sinon,expect*/
 describe('Reducers', () => {
@@ -95,6 +96,21 @@ describe('Reducers', () => {
 			};
 
 			expect(currentIssue(given, action)).to.eql(expected);
+		});
+	});
+
+	describe('vote visibility', () => {
+		it('should return not visible as a default', () => {
+			expect(voteVisibility(undefined, {})).to.equal(false);
+		});
+
+		it('should toggle the visibility when given a toggle action', () => {
+			const action = {
+				type: TOGGLE_VOTE_VISIBILITY
+			};
+
+			expect(voteVisibility(false, action)).to.equal(true);
+			expect(voteVisibility(true, action)).to.equal(false);
 		});
 	});
 });
