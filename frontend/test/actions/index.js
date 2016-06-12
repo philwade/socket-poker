@@ -1,6 +1,7 @@
 import { vote, VOTE } from 'actions';
 import { update_issue, UPDATE_ISSUE } from 'actions';
 import { toggle_vote_visibility, TOGGLE_VOTE_VISIBILITY } from 'actions';
+import { clear_votes, CLEAR_VOTES } from 'actions';
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -41,6 +42,16 @@ describe('Actions', () => {
 			};
 
 			expect(toggle_vote_visibility()).to.eql(expected);
+		});
+	});
+
+	describe('clear votes', () => {
+		it('should create a clear action', () => {
+			const expected = {
+				type: CLEAR_VOTES
+			};
+
+			expect(clear_votes()).to.eql(expected);
 		});
 	});
 });

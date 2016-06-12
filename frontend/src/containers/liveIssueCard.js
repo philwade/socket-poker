@@ -1,6 +1,6 @@
 import { connect } from 'preact-redux';
 import IssueCard from '../components/home/issueCard';
-import { update_issue, toggle_vote_visibility } from '../actions';
+import { update_issue, toggle_vote_visibility, clear_votes } from '../actions';
 
 const mapStateToProps = (state) => {
 	return {
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		toggleVotes: () => {
 			dispatch(toggle_vote_visibility());
+		},
+		clearVotes: () => {
+			dispatch(clear_votes());
 		}
 	};
 };

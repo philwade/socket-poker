@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 
 class IssueCard extends Component {
-	render({ saveIssue, toggleVotes, votesVisible }) {
+	render({ saveIssue, toggleVotes, votesVisible, clearVotes }) {
 		return (
 			<div class="card blue-grey darken-1 issue">
 				<div class="card-content white-text activator">
@@ -21,8 +21,8 @@ class IssueCard extends Component {
 					</div>
 				</div>
 				<div class="card-action">
-					<a href onClick={(e) => { e.preventDefault(); toggleVotes() }}>{ votesVisible ? 'Hide Votes' : 'Show Votes' }</a>
-					<a href>Clear Votes</a>
+					<a href onClick={(e) => { e.preventDefault(); toggleVotes(); }}>{ votesVisible ? 'Hide Votes' : 'Show Votes' }</a>
+					<a href onClick={(e) => { e.preventDefault(); clearVotes(); }}>Clear Votes</a>
 				</div>
 			</div>
 		);

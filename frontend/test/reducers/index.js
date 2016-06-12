@@ -1,7 +1,7 @@
 import users from 'reducers/users';
 import currentIssue from 'reducers/currentIssue';
 import voteVisibility from 'reducers/voteVisibility';
-import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY } from 'actions';
+import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY, CLEAR_VOTES } from 'actions';
 
 /*global sinon,expect*/
 describe('Reducers', () => {
@@ -25,6 +25,26 @@ describe('Reducers', () => {
 			];
 
 			expect(users(initialState, action)).to.eql(expected);
+		});
+
+		it('should clear users votes', () => {
+			const initial = [
+				{ userId: 0, vote: 100 },
+				{ userId: 1, vote: '' },
+				{ userId: 2, randomInfo: 'yey', vote: 'test'}
+			];
+
+			const expected = [
+				{ userId: 0, vote: '' },
+				{ userId: 1, vote: '' },
+				{ userId: 2, randomInfo: 'yey', vote: ''}
+			];
+
+			const action = {
+				type: CLEAR_VOTES
+			};
+
+			expect(users(initial, action)).to.eql(expected);
 		});
 
 	});
