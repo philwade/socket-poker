@@ -5,7 +5,10 @@ import { update_issue, toggle_vote_visibility, clear_votes } from '../actions';
 const mapStateToProps = (state) => {
 	return {
 		issue: state.currentIssue,
-		votesVisible: state.voteVisibility
+		votesVisible: state.voteVisibility,
+		votes: state.users
+			.filter((user) => !isNaN(parseInt(user.vote)))
+			.map((user) => parseInt(user.vote))
 	};
 };
 

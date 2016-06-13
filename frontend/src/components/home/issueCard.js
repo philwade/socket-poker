@@ -1,13 +1,19 @@
 import { h, Component } from 'preact';
 
 class IssueCard extends Component {
-	render({ saveIssue, toggleVotes, votesVisible, clearVotes }) {
+	render({ saveIssue, toggleVotes, votesVisible, clearVotes, votes }) {
 		return (
 			<div class="card blue-grey darken-1 issue">
 				<div class="card-content white-text activator">
+					<div class="row">
 					<span class="card-title activator">{this.props.issue.title}<i class="material-icons right">mode edit</i></span>
-					<p><b>Score:</b>{this.props.issue.score}</p>
 					<p>{this.props.issue.content}</p>
+					</div>
+					<div class="row">
+						<div class="col s4">High: {votesVisible ? votes.sort()[votes.length - 1] : '?'}</div>
+						<div class="col s4">Low: {votesVisible ? votes.sort()[0] : '?'}</div>
+						<div class="col s4">Average: {votesVisible ? votes.reduce((previous, current) => previous + current) / votes.length : '?'}</div>
+					</div>
 				</div>
 				<div class="card-reveal">
 					<span class="card-title">Edit Issue <i class="material-icons right">close</i></span>

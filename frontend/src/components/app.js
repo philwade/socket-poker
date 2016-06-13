@@ -14,7 +14,7 @@ let initialState = {
 	users: [
 		{ id: 1, name: 'guy', vote: '' },
 		{ id: 0, name: 'someoneelse', vote: 10 },
-		{ id: 2, name: 'me', vote: 101 }
+		{ id: 2, name: 'me', vote: 91 }
 	]
 };
 let store = createStore(pokerApp, initialState);
