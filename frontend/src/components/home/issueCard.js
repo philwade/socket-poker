@@ -10,9 +10,9 @@ class IssueCard extends Component {
 					<p>{this.props.issue.content}</p>
 					</div>
 					<div class="row">
-						<div class="col s4">High: {votesVisible ? votes.sort()[votes.length - 1] : '?'}</div>
-						<div class="col s4">Low: {votesVisible ? votes.sort()[0] : '?'}</div>
-						<div class="col s4">Average: {votesVisible ? votes.reduce((previous, current) => previous + current) / votes.length : '?'}</div>
+						<div class="col s4">High: <span class="userVote">{votesVisible ? votes.sort()[votes.length - 1] : '?'}</span></div>
+						<div class="col s4">Low: <span class="userVote">{votesVisible ? votes.sort()[0] : '?'}</span></div>
+						<div class="col s4">Average: <span class="userVote">{votesVisible ? votes.reduce((previous, current) => previous + current) / votes.length : '?'}</span></div>
 					</div>
 				</div>
 				<div class="card-reveal">
