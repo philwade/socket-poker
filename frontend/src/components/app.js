@@ -13,8 +13,8 @@ let initialState = {
 	currentUser: 0,
 	users: [
 		{ id: 1, name: 'guy', vote: '' },
-		{ id: 0, name: 'someoneelse', vote: 10 },
-		{ id: 2, name: 'me', vote: 91 }
+		{ id: 0, name: 'someoneelse', vote: 20 },
+		{ id: 2, name: 'me', vote: 20 }
 	]
 };
 let store = createStore(pokerApp, initialState);

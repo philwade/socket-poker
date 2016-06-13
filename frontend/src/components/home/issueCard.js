@@ -2,6 +2,11 @@ import { h, Component } from 'preact';
 
 class IssueCard extends Component {
 	render({ saveIssue, toggleVotes, votesVisible, clearVotes, votes }) {
+		let consensus = (!!votes.reduce((a, b) => (a === b) ? a : false) && votesVisible) ?
+					<div class="row">
+						<h4 class="light-green-text">Consensus!</h4>
+					</div>
+					: '';
 		return (
 			<div class="card blue-grey darken-1 issue">
 				<div class="card-content white-text activator">
@@ -14,6 +19,7 @@ class IssueCard extends Component {
 						<div class="col s4">Low: <span class="userVote">{votesVisible ? votes.sort()[0] : '?'}</span></div>
 						<div class="col s4">Average: <span class="userVote">{votesVisible ? votes.reduce((previous, current) => previous + current) / votes.length : '?'}</span></div>
 					</div>
+					{consensus}
 				</div>
 				<div class="card-reveal">
 					<span class="card-title">Edit Issue <i class="material-icons right">close</i></span>
