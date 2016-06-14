@@ -1,5 +1,5 @@
 import { connect } from 'preact-redux';
-import IssueCard from '../components/home/issueCard';
+import IssueCard from '../components/issueCard';
 import { update_issue, toggle_vote_visibility, clear_votes } from '../actions';
 
 const mapStateToProps = (state) => {
