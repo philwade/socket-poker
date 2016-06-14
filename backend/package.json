@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"start": "babel-node index.js",
+    "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Phil Wade",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongodb": "^2.1.18",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
