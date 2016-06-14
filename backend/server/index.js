@@ -23,11 +23,11 @@ store.dispatch(toggle_vote_visibility());
 app.get('/api/session/:id', (req, res) => {
 	let id = req.params.id;
 	sessions.findById(id, (err, doc) => {
-		if(!err) {
-			res.send('errrr ' + err);
+		if(err) {
+			res.json(err);
 			return;
 		}
-		res.send(doc);
+		res.json(doc);
 	});
 });
 
