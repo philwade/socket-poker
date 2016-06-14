@@ -1,7 +1,7 @@
 import users from 'reducers/users';
 import currentIssue from 'reducers/currentIssue';
 import voteVisibility from 'reducers/voteVisibility';
-import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY, CLEAR_VOTES } from 'actions';
+import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY, CLEAR_VOTES, ADD_USER } from 'actions';
 
 /*global sinon,expect*/
 describe('Reducers', () => {
@@ -42,6 +42,29 @@ describe('Reducers', () => {
 
 			const action = {
 				type: CLEAR_VOTES
+			};
+
+			expect(users(initial, action)).to.eql(expected);
+		});
+
+		it('should add a new user', () => {
+			const initial = [
+				{ userId: 0, vote: 100 },
+				{ userId: 1, vote: '' },
+				{ userId: 2, randomInfo: 'yey', vote: 'test'}
+			];
+
+			const expected = [
+				{ userId: 0, vote: 100 },
+				{ userId: 1, vote: '' },
+				{ userId: 2, randomInfo: 'yey', vote: 'test'},
+				{ id: 100, name: 'name', vote: ''}
+			];
+
+			const action = {
+				type: ADD_USER,
+				name: 'name',
+				id: 100
 			};
 
 			expect(users(initial, action)).to.eql(expected);

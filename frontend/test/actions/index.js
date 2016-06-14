@@ -2,6 +2,7 @@ import { vote, VOTE } from 'actions';
 import { update_issue, UPDATE_ISSUE } from 'actions';
 import { toggle_vote_visibility, TOGGLE_VOTE_VISIBILITY } from 'actions';
 import { clear_votes, CLEAR_VOTES } from 'actions';
+import { add_user, ADD_USER } from 'actions';
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -52,6 +53,18 @@ describe('Actions', () => {
 			};
 
 			expect(clear_votes()).to.eql(expected);
+		});
+	});
+
+	describe('add user', () => {
+		it('should create an add user action', () => {
+			const expected = {
+				type: ADD_USER,
+				name: 'test',
+				id: 0
+			};
+
+			expect(add_user('test', 0)).to.eql(expected);
 		});
 	});
 });

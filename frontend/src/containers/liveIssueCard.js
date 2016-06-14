@@ -7,8 +7,8 @@ const mapStateToProps = (state) => {
 		issue: state.currentIssue,
 		votesVisible: state.voteVisibility,
 		votes: state.users
-			.filter((user) => !isNaN(parseInt(user.vote)))
-			.map((user) => parseInt(user.vote))
+			.filter((user) => !isNaN(parseInt(user.vote, 10)))
+			.map((user) => parseInt(user.vote, 10))
 	};
 };
 

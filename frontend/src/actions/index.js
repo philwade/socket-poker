@@ -2,6 +2,8 @@ export const VOTE = 'VOTE';
 export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
 export const CLEAR_VOTES = 'CLEAR_VOTES';
+export const ADD_USER = 'ADD_USER';
+
 export const vote = (userId, value) => {
 	return {
 		type: VOTE,
@@ -27,5 +29,13 @@ export const toggle_vote_visibility = () => {
 export const clear_votes = () => {
 	return {
 		type: CLEAR_VOTES
+	};
+};
+
+export const add_user = (name, id) => {
+	return {
+		type: ADD_USER,
+		name,
+		id
 	};
 };

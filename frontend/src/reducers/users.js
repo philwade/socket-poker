@@ -1,4 +1,4 @@
-import { VOTE, CLEAR_VOTES } from '../actions';
+import { VOTE, CLEAR_VOTES, ADD_USER } from '../actions';
 
 const users = (users = [], action) => {
 	switch (action.type) {
@@ -13,6 +13,8 @@ const users = (users = [], action) => {
 			return users.map((user) => {
 				return { ...user, vote: ''};
 			});
+		case ADD_USER:
+			return [...users, { name: action.name, id: action.id, vote: '' }];
 		default:
 			return users;
 	}
