@@ -4,7 +4,7 @@ import LiveIssueCard from '../../containers/liveIssueCard';
 import VotingUsers from '../../containers/votingUsers';
 import VotingPanelContainer from '../../containers/votingPanelContainer';
 
-export default class Home extends Component {
+export default class Voting extends Component {
 	render() {
 		return (
 			<div class="cyan darken-1">

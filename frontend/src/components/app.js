@@ -6,8 +6,8 @@ import { vote } from '../actions';
 import pokerApp from '../reducers';
 
 import Header from './header';
-import Home from './home';
-import Profile from './profile';
+import Voting from './voting';
+import Landing from './landing';
 
 let initialState = {
 	currentUser: 0,
@@ -37,9 +37,8 @@ export default class App extends Component {
 				<Header />
 				<Provider store={store}>
 					<Router onChange={this.handleRoute}>
-						<Home path="/" />
-						<Profile path="/profile/" user="me" />
-						<Profile path="/profile/:user" />
+						<Voting path="/session/:id" />
+						<Landing path="/" />
 					</Router>
 				</Provider>
 			</div>
