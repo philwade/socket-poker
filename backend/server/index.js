@@ -20,7 +20,7 @@ let sessions = db.get('sessions');
 //sessions.insert(store.getState());
 store.dispatch(toggle_vote_visibility());
 
-app.get('/api/session/:id', (req, res) => {
+app.get('/session/:id', (req, res) => {
 	let id = req.params.id;
 	sessions.findById(id, (err, doc) => {
 		if(err) {
@@ -31,10 +31,10 @@ app.get('/api/session/:id', (req, res) => {
 	});
 });
 
-app.post('/api/session', (req, res) => {
+app.post('/session', (req, res) => {
 	res.send('create session');
 });
 
 
-app.server.listen(process.env.PORT || 8080);
+app.server.listen(process.env.PORT || 5000);
 console.log(`Started on port ${app.server.address().port}`);

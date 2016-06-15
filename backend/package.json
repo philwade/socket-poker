@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "mongodb": "^2.1.18",
+    "monk": "^1.0.1",
     "redux": "^3.5.2"
   },
   "devDependencies": {

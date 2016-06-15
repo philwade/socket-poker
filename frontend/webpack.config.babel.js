@@ -125,11 +125,11 @@ module.exports = {
 		historyApiFallback: true,
 		proxy: [
 			// OPTIONAL: proxy configuration:
-			// {
-			// 	path: '/optional-prefix/**',
-			// 	target: 'http://target-host.com',
-			// 	rewrite: req => { req.url = req.url.replace(/^\/[^\/]+\//, ''); }   // strip first path segment
-			// }
+			{
+				path: '/api/**',
+				target: 'http://localhost:5000',
+				rewrite: req => { req.url = req.url.replace(/^\/[^\/]+\//, ''); }   // strip first path segment
+			}
 		]
 	}
 };
