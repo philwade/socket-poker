@@ -1,6 +1,6 @@
 import { connect } from 'preact-redux';
 import { vote } from '../actions';
-import VotingPanel from '../components/home/votingPanel';
+import VotingPanel from '../components/voting/votingPanel';
 
 const mapStateToProps = (state) => {
 	return {

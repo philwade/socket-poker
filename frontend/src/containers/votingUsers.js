@@ -1,5 +1,5 @@
 import { connect } from 'preact-redux';
-import UserList from '../components/home/userList';
+import UserList from '../components/voting/userList';
 
 const mapStateToProps = (state) => {
 	return {
