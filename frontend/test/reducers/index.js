@@ -1,7 +1,8 @@
 import users from 'reducers/users';
 import currentIssue from 'reducers/currentIssue';
 import voteVisibility from 'reducers/voteVisibility';
-import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY, CLEAR_VOTES, ADD_USER } from 'actions';
+import isHydrated from 'reducers/hydrated';
+import { VOTE, UPDATE_ISSUE, TOGGLE_VOTE_VISIBILITY, CLEAR_VOTES, ADD_USER, HYDRATE_STATE } from 'actions';
 
 /*global sinon,expect*/
 describe('Reducers', () => {
@@ -154,6 +155,17 @@ describe('Reducers', () => {
 
 			expect(voteVisibility(false, action)).to.equal(true);
 			expect(voteVisibility(true, action)).to.equal(false);
+		});
+	});
+
+	describe('hydrate state', () => {
+		it('should update the isHydrated value', () => {
+			const action = {
+				type: HYDRATE_STATE,
+				state: {}
+			};
+
+			expect(isHydrated(false, action)).to.equal(true);
 		});
 	});
 });

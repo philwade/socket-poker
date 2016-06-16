@@ -3,6 +3,7 @@ import { update_issue, UPDATE_ISSUE } from 'actions';
 import { toggle_vote_visibility, TOGGLE_VOTE_VISIBILITY } from 'actions';
 import { clear_votes, CLEAR_VOTES } from 'actions';
 import { add_user, ADD_USER } from 'actions';
+import { hydrate_state, HYDRATE_STATE } from 'actions';
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -65,6 +66,17 @@ describe('Actions', () => {
 			};
 
 			expect(add_user('test', 0)).to.eql(expected);
+		});
+	});
+
+	describe('hydrate state', () => {
+		it('should create a hydrate state action', () => {
+			const expected = {
+				type: HYDRATE_STATE,
+				state: { butts: 'butts' }
+			};
+
+			expect(hydrate_state({ butts:'butts'})).to.eql(expected);
 		});
 	});
 });

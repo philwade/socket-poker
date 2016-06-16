@@ -3,6 +3,8 @@ export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
 export const CLEAR_VOTES = 'CLEAR_VOTES';
 export const ADD_USER = 'ADD_USER';
+// receive state from the server
+export const HYDRATE_STATE = 'HYDRATE_STATE';
 
 export const vote = (userId, value) => {
 	return {
@@ -37,5 +39,12 @@ export const add_user = (name, id) => {
 		type: ADD_USER,
 		name,
 		id
+	};
+};
+
+export const hydrate_state = (state) => {
+	return {
+		type: HYDRATE_STATE,
+		state
 	};
 };
