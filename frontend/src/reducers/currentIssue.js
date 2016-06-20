@@ -1,4 +1,4 @@
-import { UPDATE_ISSUE } from '../actions';
+import { UPDATE_ISSUE, HYDRATE_STATE } from '../actions';
 
 const default_issue = {
 	title: 'Get started voting!',
@@ -12,6 +12,8 @@ const currentIssue = (current_issue = default_issue, action) => {
 				title: action.title ? action.title : current_issue.title,
 				content: action.content ? action.content : current_issue.content
 			};
+		case HYDRATE_STATE:
+			return action.state.currentIssue;
 		default:
 			return current_issue;
 	}

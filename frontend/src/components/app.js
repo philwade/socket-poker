@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import { createStore } from 'redux';
 import { Provider } from 'preact-redux';
-import { vote } from '../actions';
+import { hydrate_state } from '../actions';
 import pokerApp from '../reducers';
 
 import Header from './header';

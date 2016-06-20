@@ -71,6 +71,30 @@ describe('Reducers', () => {
 			expect(users(initial, action)).to.eql(expected);
 		});
 
+		it('should hydrate the users from server state', () => {
+			const given = [];
+			const action = {
+				type: HYDRATE_STATE,
+				state: {
+					users: [
+						{ userId: 0, vote: 100 },
+						{ userId: 1, vote: '' },
+						{ userId: 2, randomInfo: 'yey', vote: 'test'},
+						{ id: 100, name: 'name', vote: ''}
+					]
+				}
+			};
+
+			const expected = [
+				{ userId: 0, vote: 100 },
+				{ userId: 1, vote: '' },
+				{ userId: 2, randomInfo: 'yey', vote: 'test'},
+				{ id: 100, name: 'name', vote: ''}
+			];
+
+			expect(users(given, action)).to.eql(expected);
+		});
+
 	});
 
 	describe('currentIssue', () => {
@@ -141,6 +165,19 @@ describe('Reducers', () => {
 
 			expect(currentIssue(given, action)).to.eql(expected);
 		});
+
+		it('should pull the issue out of state given on hydration', () => {
+			const given = 'old issue';
+			const expected = 'test';
+			const action = {
+				type: HYDRATE_STATE,
+				state: {
+					currentIssue: 'test'
+				}
+			};
+
+			expect(currentIssue(given, action)).to.eql(expected);
+		});
 	});
 
 	describe('vote visibility', () => {
@@ -155,6 +192,19 @@ describe('Reducers', () => {
 
 			expect(voteVisibility(false, action)).to.equal(true);
 			expect(voteVisibility(true, action)).to.equal(false);
+		});
+
+		it('should hydrate with visibility from server state', () => {
+			const given = false;
+			const expected = true;
+			const action = {
+				type: HYDRATE_STATE,
+				state: {
+					voteVisibility: true
+				}
+			};
+
+			expect(voteVisibility(given, action)).to.equal(expected);
 		});
 	});
 

@@ -1,4 +1,4 @@
-import { VOTE, CLEAR_VOTES, ADD_USER } from '../actions';
+import { VOTE, CLEAR_VOTES, ADD_USER, HYDRATE_STATE } from '../actions';
 
 const users = (users = [], action) => {
 	switch (action.type) {
@@ -15,6 +15,8 @@ const users = (users = [], action) => {
 			});
 		case ADD_USER:
 			return [...users, { name: action.name, id: action.id, vote: '' }];
+		case HYDRATE_STATE:
+			return action.state.users;
 		default:
 			return users;
 	}
