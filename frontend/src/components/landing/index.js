@@ -8,14 +8,14 @@ export default class Landing extends Component {
 	}
 
 	redirectToVoting() {
-		route('session/' + this.state.session);
+		route('session/join/' + this.state.session);
 	}
 
 	onChange(e) {
 		this.setState({ session: e.target.value});
 	}
 
-	render(props, state) {
+	render(state) {
 		return (
 			<div class="row">
 				<div class="col s8 offset-s2">

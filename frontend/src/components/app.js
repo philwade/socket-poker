@@ -1,23 +1,21 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'preact-redux';
-import { hydrate_state } from '../actions';
+import thunkMiddleWare from 'redux-thunk';
 import pokerApp from '../reducers';
 
 import Header from './header';
 import Voting from './voting';
 import Landing from './landing';
+import LiveJoin from '../containers/liveJoin';
 
-let initialState = {
-	currentUser: 0,
-	users: [
-		{ id: 1, name: 'guy', vote: '' },
-		{ id: 0, name: 'someoneelse', vote: 20 },
-		{ id: 2, name: 'me', vote: 20 }
-	]
-};
-let store = createStore(pokerApp, initialState);
+let store = createStore(pokerApp,
+	applyMiddleware(
+		thunkMiddleWare
+	)
+);
+
 store.subscribe(() => {
 	console.log(store.getState());
 });
@@ -37,6 +35,7 @@ export default class App extends Component {
 				<Header />
 				<Provider store={store}>
 					<Router onChange={this.handleRoute}>
+						<LiveJoin path="/session/join/:id" />
 						<Voting path="/session/:id" />
 						<Landing path="/" />
 					</Router>

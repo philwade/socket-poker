@@ -1,3 +1,5 @@
+import 'isomorphic-fetch';
+
 export const VOTE = 'VOTE';
 export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
@@ -46,5 +48,21 @@ export const hydrate_state = (state) => {
 	return {
 		type: HYDRATE_STATE,
 		state
+	};
+};
+
+export const create_session = () => {
+	return (dispatch) => {
+		return fetch('/api/session', {method:'POST'})
+			.then(response => response.json())
+			.then(json => dispatch(hydrate_state(json)));
+	};
+};
+
+export const fetch_session = (id) => {
+	return (dispatch) => {
+		return fetch('/api/session/' + id)
+			.then(response => response.json())
+			.then(json => dispatch(hydrate_state(json)));
 	};
 };
