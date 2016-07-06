@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => {
 		fetchSession: (id) => {
 			dispatch(fetch_session(id));
 		}
-	}
+	};
 };
 
 const LiveJoin = connect(() => { return {}; }, mapDispatchToProps)(Join);

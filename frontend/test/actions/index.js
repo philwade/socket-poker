@@ -4,6 +4,15 @@ import { toggle_vote_visibility, TOGGLE_VOTE_VISIBILITY } from 'actions';
 import { clear_votes, CLEAR_VOTES } from 'actions';
 import { add_user, ADD_USER } from 'actions';
 import { hydrate_state, HYDRATE_STATE } from 'actions';
+import { create_session, fetch_session } from 'actions';
+
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
+import 'isomorphic-fetch';
+
+const middleWares = [ thunk ];
+const mockStore = configureMockStore(middleWares);
 
 /*global sinon,expect*/
 describe('Actions', () => {
@@ -77,6 +86,53 @@ describe('Actions', () => {
 			};
 
 			expect(hydrate_state({ butts:'butts'})).to.eql(expected);
+		});
+	});
+
+	describe('async actions', () => {
+		afterEach(() => {
+			fetchMock.restore();
+		});
+
+		it('should hydrate state after creating a session', () => {
+			fetchMock.mock(
+				'/api/session',
+				'POST',
+				{ body: { users: ['hello'] } }
+			);
+
+			const expectedActions = [
+				{ type: HYDRATE_STATE, state: { users: ['hello'] } }
+			];
+
+			const store = mockStore({ users: [] });
+
+			return store.dispatch(create_session())
+				.then(() => {
+					expect(store.getActions()).to.eql(expectedActions);
+				});
+		});
+
+		it('should hydrate state after fetching a session', () => {
+			fetchMock.mock(
+				'/api/session/123',
+				{ body: { users: ['hello'] } }
+			);
+
+			const expectedActions = [
+				{ type: HYDRATE_STATE, state: { users: ['hello'] } }
+			];
+
+			const expectedState = {
+				users: ['hello']
+			};
+
+			const store = mockStore({ users: [] });
+
+			return store.dispatch(fetch_session(123))
+				.then(() => {
+					expect(store.getActions()).to.eql(expectedActions);
+				});
 		});
 	});
 });

@@ -10,6 +10,7 @@ module.exports = function(config) {
 		browsers: ['PhantomJS'],
 
 		files: [
+			'./node_modules/es6-promise/dist/es6-promise.js',
 			'test/browser/**/*.js',
 			'test/actions/**/*.js',
 			'test/reducers/**/*.js',
