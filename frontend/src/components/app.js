@@ -10,6 +10,9 @@ import Voting from './voting';
 import Landing from './landing';
 import LiveJoin from '../containers/liveJoin';
 
+import io from 'socket.io-client';
+
+let socket = io('', {path: '/api'});
 let store = createStore(pokerApp,
 	applyMiddleware(
 		thunkMiddleWare
