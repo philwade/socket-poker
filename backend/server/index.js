@@ -34,6 +34,11 @@ app.post('/session', (req, res) => {
 
 socket.on('connection', (socket) => {
 	console.log('whattttupp');
+
+	socket.on('action', (action) => {
+		console.log('got action ' + action.type);
+		socket.broadcast('action', action);
+	});
 });
 
 server.listen(process.env.PORT || 5000);

@@ -13,6 +13,10 @@ import LiveJoin from '../containers/liveJoin';
 import io from 'socket.io-client';
 
 let socket = io('', {path: '/api/socket'});
+socket.on('action', (action) => {
+	console.log(action);
+});
+
 let store = createStore(pokerApp,
 	applyMiddleware(
 		thunkMiddleWare
