@@ -12,7 +12,7 @@ import LiveJoin from '../containers/liveJoin';
 
 import io from 'socket.io-client';
 
-let socket = io('', {path: '/api'});
+let socket = io('', {path: '/api/socket'});
 let store = createStore(pokerApp,
 	applyMiddleware(
 		thunkMiddleWare
