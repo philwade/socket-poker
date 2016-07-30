@@ -1,4 +1,5 @@
 import 'isomorphic-fetch';
+import guid from '../lib/guid';
 
 export const VOTE = 'VOTE';
 export const UPDATE_ISSUE = 'UPDATE_ISSUE';
@@ -69,9 +70,12 @@ export const fetch_session = (id) => {
 	};
 };
 
-export const set_user = (user) => {
+export const set_user = (username, id) => {
 	return {
 		type: SET_USER,
-		user,
+		user: {
+			id,
+			name: username
+		}
 	}
 };

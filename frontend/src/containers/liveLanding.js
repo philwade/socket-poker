@@ -1,6 +1,7 @@
 import { connect } from 'preact-redux';
 import Landing from '../components/landing';
 import { create_session, fetch_session, set_user, add_user } from '../actions';
+import guid from '../lib/guid';
 
 const mapStateToProps = (state) => {
 	return {
@@ -18,8 +19,9 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(fetch_session(id));
 		},
 		setUser: (user) => {
-			dispatch(add_user(user));
-			dispatch(set_user(user));
+			let id = guid();
+			dispatch(add_user(user, id));
+			dispatch(set_user(user, id));
 		}
 	};
 };

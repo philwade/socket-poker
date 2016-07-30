@@ -5,7 +5,7 @@ import VotingPanel from '../components/voting/votingPanel';
 const mapStateToProps = (state) => {
 	return {
 		voteValues: state.voteValues,
-		userId: 1
+		userId: state.user.id
 	};
 };
 
