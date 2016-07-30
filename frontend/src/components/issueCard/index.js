@@ -16,7 +16,7 @@ class IssueCard extends Component {
 					<div class="row">
 						<div class="col s4">High: <span class="userVote">{votesVisible ? votes.sort()[votes.length - 1] : '?'}</span></div>
 						<div class="col s4">Low: <span class="userVote">{votesVisible ? votes.sort()[0] : '?'}</span></div>
-						<div class="col s4">Average: <span class="userVote">{votesVisible ? votes.reduce((previous, current) => previous + current) / votes.length : '?'}</span></div>
+						<div class="col s4">Average: <span class="userVote">{(votesVisible && votes.length) ? votes.reduce((previous, current) => previous + current, null) / votes.length : '?'}</span></div>
 					</div>
 					{consensus}
 				</div>
