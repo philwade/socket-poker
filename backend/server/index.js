@@ -21,6 +21,7 @@ app.get('/session/:id', (req, res) => {
 			res.json(err);
 			return;
 		}
+		console.log('found session');
 		res.json(doc);
 	});
 });
@@ -29,11 +30,12 @@ app.post('/session', (req, res) => {
 	let store = createStore(pokerApp);
 	let state = store.getState();
 	sessions.insert(state);
+	console.log('create session');
 	res.json(state);
 });
 
 socket.on('connection', (socket) => {
-	console.log('whattttupp');
+	console.log('client connect');
 
 	socket.on('action', (action) => {
 		console.log('got action ' + action.type);
