@@ -7,8 +7,7 @@ import pokerApp from '../reducers';
 
 import Header from './header';
 import Voting from './voting';
-import Landing from './landing';
-import LiveJoin from '../containers/liveJoin';
+import LiveLanding from '../containers/liveLanding';
 
 import io from 'socket.io-client';
 
@@ -42,9 +41,8 @@ export default class App extends Component {
 				<Header />
 				<Provider store={store}>
 					<Router onChange={this.handleRoute}>
-						<LiveJoin path="/session/join/:id" />
 						<Voting path="/session/:id" />
-						<Landing path="/" />
+						<LiveLanding path="/" />
 					</Router>
 				</Provider>
 			</div>

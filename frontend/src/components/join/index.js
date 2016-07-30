@@ -8,23 +8,21 @@ export default class Join extends Component {
 	}
 
 	onChange(e) {
-		route('session/' + this.props.id);
+		this.setState({username: e.target.value});
 	}
 
-	render({ createSession }, props, state) {
+	render({ setUser }) {
 		return (
 			<div class="row">
 				<div class="col s8 offset-s2">
 					<div class="card blue-grey darken-1 white-text">
 						<div class="card-content">
-							<h3>Joining session {props.id}</h3>
-							<input type="text" value={state.username}
-								disabled={props.isHydrated}
+							<h3>Joining session ????</h3>
+							<input type="text" value={this.state.username}
 								onChange={(e) => this.onChange(e)}
 								placeholder="Enter your username"/>
 							<a class="waves-effect waves-light btn"
-								disabled={props.isHydrated}
-								onClick={() => createSession()}>
+								onClick={() => setUser(this.state.username)}>
 								<i class="material-icons left">flight_takeoff</i>
 								Let's goooooo
 							</a>

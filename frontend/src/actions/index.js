@@ -5,6 +5,8 @@ export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
 export const CLEAR_VOTES = 'CLEAR_VOTES';
 export const ADD_USER = 'ADD_USER';
+// Set who we are
+export const SET_USER = 'SET_USER';
 // receive state from the server
 export const HYDRATE_STATE = 'HYDRATE_STATE';
 
@@ -65,4 +67,11 @@ export const fetch_session = (id) => {
 			.then(response => response.json())
 			.then(json => dispatch(hydrate_state(json)));
 	};
+};
+
+export const set_user = (user) => {
+	return {
+		type: SET_USER,
+		user,
+	}
 };

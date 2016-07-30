@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
+import Join from '../join';
+import Voting from '../voting';
 
 export default class Landing extends Component {
 	constructor() {
@@ -7,7 +9,7 @@ export default class Landing extends Component {
 		this.state.session = '';
 	}
 
-	redirectToVoting() {
+	redirectToJoin() {
 		route('session/join/' + this.state.session);
 	}
 
@@ -15,7 +17,15 @@ export default class Landing extends Component {
 		this.setState({ session: e.target.value});
 	}
 
-	render(state) {
+	render({ isHydrated, user, createSession, fetchSession, setUser, session }) {
+		if(isHydrated && user) {
+			return <Voting />
+		}
+
+		if(isHydrated && !user) {
+			return <Join setUser={setUser}/>
+		}
+
 		return (
 			<div class="row">
 				<div class="col s8 offset-s2">
@@ -23,14 +33,15 @@ export default class Landing extends Component {
 						<div class="card-content">
 							<h3>Welcome to Socket Poker</h3>
 							<p>To get started create a new session or join one.</p>
-							<p><a class="waves-effect waves-light btn"><i class="material-icons left">play_arrow</i>Start a new session</a></p>
+							<p><a class="waves-effect waves-light btn"
+								onClick={() => createSession()}><i class="material-icons left">play_arrow</i>Start a new session</a></p>
 							<p>
 								<a class="waves-effect waves-light btn"
-									onClick={() => this.redirectToVoting()}>
+									onClick={() => fetchSession(this.state.session)}>
 									<i class="material-icons left">play_for_work</i>
 									Join a session
 								</a>
-								<input type="text" value={state.session}
+								<input type="text" value={this.state.session}
 									onChange={(e) => this.onChange(e)}
 									placeholder="Enter a session Id"/>
 							</p>

@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 
 class IssueCard extends Component {
 	render({ saveIssue, toggleVotes, votesVisible, clearVotes, votes }) {
-		let consensus = (!!votes.reduce((a, b) => (a === b) ? a : false) && votesVisible) ?
+		let consensus = (!!votes.reduce((a, b) => (a === b) ? a : false, null) && votesVisible) ?
 					<div class="row">
 						<h4 class="light-green-text">Consensus!</h4>
 					</div>
