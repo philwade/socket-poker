@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="row">
+        <div class="Well">
+            {% if role == 'admin' %}
+                <div class="input-group">
+                    <span class="input-group-addon">Voting On:</span>
+                    <input id="topic" type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button id='set-topic' class="btn btn-default" type="button">Set Topic</button>
+                    </span>
+                </div>
+            {% else %}
+                Voting on: <span id="voting-on">{{poker_session['topic']}}</span>
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            {% if role == 'player' %}
+            <div class="btn-group btn-group-lg">
+                <button class="btn btn-default point-button">1/2</button>
+                <button class="btn btn-default point-button">1</button>
+                <button class="btn btn-default point-button">2</button>
+                <button class="btn btn-default point-button">3</button>
+                <button class="btn btn-default point-button">5</button>
+                <button class="btn btn-default point-button">8</button>
+                <button class="btn btn-default point-button">13</button>
+                <button class="btn btn-default point-button">21</button>
+                <button class="btn btn-default point-button">34</button>
+                <button class="btn btn-default point-button">55</button>
+            </div>
+            {% endif %}
+            {% if role == 'admin' %}
+            <div>
+                <button id="show-votes" class="btn btn-default btn-lg">Show Votes</button>
+                <button id="clear-votes" class="btn btn-default btn-lg pull-right">Clear Votes</button>
+            </div>
+            {% endif %}
+            <div class="player-container">
+                <ul id="player-list" class="list-group">
+                    {% for uid, person in poker_session['people'].iteritems() %}
+                    {% if person['role'] == 'player' %}
+                    <li id="{{uid}}" class="list-group-item">
+                        {{ person['username'] }}
+                        <span class="badge">
+                            {% if person['vote'] != '' %}
+                            <span data-points="{{person['vote']}}" class="player-vote glyphicon glyphicon-ok"></span>
+                            {% else %}
+                            <span class="player-vote glyphicon glyphicon-remove"></span>
+                            {% endif %}
+                        </span>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <ul id="messages" class="list-group messages-container">
+            </ul>
+            <div class="input-group chat-container">
+                <input id="chat-input" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button id="chat-send" class="btn btn-default" type="button">Send</button>
+                </span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/static/index.js"></script>
+{% endblock %}

@@ -1,9 +1,9 @@
 from flask_wtf import Form
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
-class CreateForm(Form):
+class CreateSessionForm(Form):
     sessionName = StringField('Session Name', validators=[DataRequired(message="required")])
-    username = StringField('Username', validators=[DataRequired(message="required")])
-    submit = SubmitField('Create Session')
-
+    username = StringField('Display Name', validators=[DataRequired(message="required")])
+    role = SelectField('Role', choices=[('player', 'player'), ('observer', 'observer'), ('admin', 'admin')], validators=[DataRequired(message="required")])
+    submit = SubmitField('Create or Join Session')
