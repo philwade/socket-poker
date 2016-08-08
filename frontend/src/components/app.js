@@ -8,23 +8,23 @@ import pokerApp from '../reducers';
 import Header from './header';
 import Voting from './voting';
 import LiveLanding from '../containers/liveLanding';
+import { createActionDistributor } from '../lib/createActionDistributor';
 
 import io from 'socket.io-client';
 
 let socket = io('', {path: '/api/socket'});
 socket.on('action', (action) => {
-	console.log(action);
+	console.log('received action on socket: ', action);
 });
+
+let actionDistributor = createActionDistributor(socket);
 
 let store = createStore(pokerApp,
 	applyMiddleware(
-		thunkMiddleWare
+		thunkMiddleWare,
+		actionDistributor
 	)
 );
-
-store.subscribe(() => {
-	console.log(store.getState());
-});
 
 export default class App extends Component {
 	/** Gets fired when the route changes.

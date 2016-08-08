@@ -12,7 +12,7 @@ let sessions = db.get('sessions');
 
 let app = express();
 let server = http.Server(app);
-let socket = new SocketIO(server, { path: '/socket' });
+let io = new SocketIO(server, { path: '/socket' });
 
 app.get('/session/:id', (req, res) => {
 	let id = req.params.id;
@@ -34,12 +34,12 @@ app.post('/session', (req, res) => {
 	res.json(state);
 });
 
-socket.on('connection', (socket) => {
+io.on('connection', (socket) => {
 	console.log('client connect');
 
 	socket.on('action', (action) => {
 		console.log('got action ' + action.type);
-		socket.broadcast('action', action);
+		io.emit('action', action);
 	});
 });
 
