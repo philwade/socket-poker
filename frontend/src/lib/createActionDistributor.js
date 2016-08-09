@@ -1,4 +1,5 @@
 export const createActionDistributor = socket => store => next => action => {
-	socket.emit('action', action);
+	let state = store.getState();
+	socket.emit('action', {...action, id: state._id});
 	return next(action);
 }
