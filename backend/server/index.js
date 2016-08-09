@@ -21,17 +21,20 @@ app.get('/session/:id', (req, res) => {
 			res.json(err);
 			return;
 		}
-		console.log('found session');
-		res.json(doc);
+		console.log('found session: ' + doc._id);
+		let store = createStore(pokerApp, doc);
+		let state = store.getState();
+		res.json(state);
 	});
 });
 
 app.post('/session', (req, res) => {
 	let store = createStore(pokerApp);
 	let state = store.getState();
-	sessions.insert(state);
-	console.log('create session');
-	res.json(state);
+	sessions.insert(state).then((doc) => {;
+		console.log('create session: ' + doc._id);
+		res.json(state);
+	});
 });
 
 io.on('connection', (socket) => {
