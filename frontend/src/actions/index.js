@@ -49,6 +49,7 @@ export const add_user = (name, id) => {
 
 export const hydrate_state = (state) => {
 	return {
+		local: true,
 		type: HYDRATE_STATE,
 		state
 	};
@@ -72,6 +73,7 @@ export const fetch_session = (id) => {
 
 export const set_user = (username, id) => {
 	return {
+		local: true,
 		type: SET_USER,
 		user: {
 			id,

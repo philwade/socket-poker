@@ -13,10 +13,6 @@ import { createActionDistributor } from '../lib/createActionDistributor';
 import io from 'socket.io-client';
 
 let socket = io('', {path: '/api/socket'});
-socket.on('action', (action) => {
-	console.log('received action on socket: ', action);
-});
-
 let actionDistributor = createActionDistributor(socket);
 
 let store = createStore(pokerApp,
@@ -25,6 +21,12 @@ let store = createStore(pokerApp,
 		actionDistributor
 	)
 );
+
+socket.on('action', (action) => {
+	store.dispatch(action);
+	console.log('received action on socket: ', action);
+});
+
 
 export default class App extends Component {
 	/** Gets fired when the route changes.

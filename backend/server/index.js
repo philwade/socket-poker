@@ -42,7 +42,8 @@ io.on('connection', (socket) => {
 
 	socket.on('action', (action) => {
 		console.log('got action ' + action.type);
-		io.emit('action', action);
+		let emit_action = Object.assign({}, action, {distributed: true});
+		socket.broadcast.emit('action', emit_action);
 	});
 });
 
