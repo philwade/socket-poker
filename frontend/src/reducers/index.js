@@ -5,8 +5,10 @@ import currentIssue from './currentIssue';
 import voteVisibility from './voteVisibility';
 import isHydrated from './hydrated';
 import user from './user';
+import id from './id';
 
 const poker = combineReducers({
+	id,
 	isHydrated,
 	voteVisibility,
 	currentIssue,

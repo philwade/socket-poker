@@ -3,7 +3,6 @@ import SocketIO from 'socket.io';
 import express from 'express';
 import { createStore } from 'redux';
 import pokerApp from '../reducers';
-import { toggle_vote_visibility } from '../actions';
 
 import monk from 'monk';
 
@@ -13,6 +12,11 @@ let sessions = db.get('sessions');
 let app = express();
 let server = http.Server(app);
 let io = new SocketIO(server, { path: '/socket' });
+
+const saveState = () => {
+	let state = store.getState();
+	sessions.update({_id: state._id}, state);
+};
 
 app.get('/session/:id', (req, res) => {
 	let id = req.params.id;
@@ -41,7 +45,14 @@ io.on('connection', (socket) => {
 	console.log('client connect');
 
 	socket.on('action', (action) => {
-		console.log('got action ' + action.type);
+		console.log('got action ' + action.type + ' with session id: ' + action.id);
+
+		sessions.findById(action.id, (err, doc) => {
+			let store = createStore(pokerApp, doc);
+			store.subscribe(saveState);
+			store.dispatch(action);
+		});
+
 		let emit_action = Object.assign({}, action, {distributed: true});
 		socket.broadcast.emit('action', emit_action);
 	});

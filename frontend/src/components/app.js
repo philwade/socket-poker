@@ -22,6 +22,10 @@ let store = createStore(pokerApp,
 	)
 );
 
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
 socket.on('action', (action) => {
 	store.dispatch(action);
 	console.log('received action on socket: ', action);
