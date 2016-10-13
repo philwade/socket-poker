@@ -43,7 +43,7 @@ export const add_user = (name, id) => {
 	return {
 		type: ADD_USER,
 		name,
-		id
+		userId: id
 	};
 };
 

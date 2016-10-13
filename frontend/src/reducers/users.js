@@ -14,7 +14,7 @@ const users = (users = [], action) => {
 				return { ...user, vote: ''};
 			});
 		case ADD_USER:
-			return [...users, { name: action.name, id: action.id, vote: '' }];
+			return [...users, { name: action.name, id: action.userId, vote: '' }];
 		case HYDRATE_STATE:
 			return action.state.users;
 		default:
