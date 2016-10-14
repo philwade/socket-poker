@@ -44,10 +44,12 @@ io.on('connection', (socket) => {
 		console.log('got action ' + action.type + ' with session id: ' + action.id);
 
 		sessions.findById(action.id, (err, doc) => {
+			doc.id = doc._id;
 			let store = createStore(pokerApp, doc);
 			store.subscribe(() => {
 				let state = store.getState();
-				sessions.update({_id: state._id}, state);
+				console.log('State after action', state);
+				sessions.update({_id: state.id}, state);
 			});
 			store.dispatch(action);
 		});
