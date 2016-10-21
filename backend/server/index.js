@@ -39,8 +39,12 @@ app.post('/session', (req, res) => {
 io.on('connection', (socket) => {
 	console.log('client connect');
 
+	socket.on('join', (id) => {
+		console.log('joining room: ' + id);
+		socket.join(id);
+	});
+
 	socket.on('action', (action) => {
-	console.log(action);
 		console.log('got action ' + action.type + ' with session id: ' + action.id);
 
 		sessions.findById(action.id, (err, doc) => {
@@ -48,14 +52,13 @@ io.on('connection', (socket) => {
 			let store = createStore(pokerApp, doc);
 			store.subscribe(() => {
 				let state = store.getState();
-				console.log('State after action', state);
 				sessions.update({_id: state.id}, state);
 			});
 			store.dispatch(action);
 		});
 
 		let emit_action = Object.assign({}, action, {distributed: true});
-		socket.broadcast.emit('action', emit_action);
+		socket.broadcast.to(action.id).emit('action', emit_action);
 	});
 });
 
