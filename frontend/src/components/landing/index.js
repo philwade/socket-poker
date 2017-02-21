@@ -18,12 +18,12 @@ export default class Landing extends Component {
 	}
 
 	render({ isHydrated, user, createSession, fetchSession, setUser, session }) {
-		if(isHydrated && user) {
-			return <Voting />
+		if (isHydrated && user) {
+			return <Voting />;
 		}
 
-		if(isHydrated && !user) {
-			return <Join setUser={setUser}/>
+		if (isHydrated && !user) {
+			return <Join setUser={setUser}/>;
 		}
 
 		return (
