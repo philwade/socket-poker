@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel actions -d dist/actions --presets es2015,babel-preset-stage-2 && babel reducers -d dist/reducers --presets es2015,babel-preset-stage-2 && babel lib -d dist/lib --presets es2015,babel-preset-stage-2 && babel index.js -d dist --presets es2015,babel-preset-stage-2"
+    "build": "babel actions -d dist/actions --presets es2015,babel-preset-stage-2 && babel reducers -d dist/reducers --presets es2015,babel-preset-stage-2 && babel lib -d dist/lib --presets es2015,babel-preset-stage-2 && babel index.js -d dist --presets es2015,babel-preset-stage-2 && babel server -d dist/server --presets es2015,babel-preset-stage-2"
   },
   "author": "Phil Wade",
   "license": "MIT",
