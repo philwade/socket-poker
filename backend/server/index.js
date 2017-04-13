@@ -6,7 +6,8 @@ import pokerApp from '../reducers';
 
 import monk from 'monk';
 
-let db = monk('localhost:27017/poker');
+let connectionString = process.env.CONNECTION || 'localhost:27017/poker';
+let db = monk(connectionString);
 let sessions = db.get('sessions');
 
 let app = express();
