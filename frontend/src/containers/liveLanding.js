@@ -6,7 +6,8 @@ import guid from '../lib/guid';
 const mapStateToProps = (state) => {
 	return {
 		isHydrated: state.isHydrated,
-		user: state.user
+		user: state.user,
+		id: state.id
 	};
 };
 
