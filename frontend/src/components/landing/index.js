@@ -4,26 +4,22 @@ import Join from '../join';
 import Voting from '../voting';
 
 export default class Landing extends Component {
-	constructor() {
+	constructor({ id }) {
 		super();
-		this.state.session = '';
-	}
-
-	redirectToJoin() {
-		route('session/join/' + this.state.session);
+		this.state.session = id || '';
 	}
 
 	onChange(e) {
 		this.setState({ session: e.target.value});
 	}
 
-	render({ isHydrated, user, createSession, fetchSession, setUser, session }) {
+	render({ isHydrated, user, createSession, fetchSession, setUser, id }) {
 		if (isHydrated && user) {
 			return <Voting />;
 		}
 
-		if (isHydrated && !user) {
-			return <Join setUser={setUser}/>;
+		if (isHydrated && !user && id) {
+			return <Join setUser={setUser} session={id} />;
 		}
 
 		return (

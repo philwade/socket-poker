@@ -12,6 +12,7 @@ function init() {
 init();
 
 if (module.hot) {
+	require('preact/devtools');
 	module.hot.accept('./components/app', () => requestAnimationFrame( () => {
 		flushLogs();
 		init();

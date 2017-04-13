@@ -47,7 +47,7 @@ export default class App extends Component {
 				<Header />
 				<Provider store={store}>
 					<Router onChange={this.handleRoute}>
-						<Voting path="/session/:id" />
+						<LiveLanding path="/session/:id" />
 						<LiveLanding path="/" />
 					</Router>
 				</Provider>
