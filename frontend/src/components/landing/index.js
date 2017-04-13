@@ -9,6 +9,13 @@ export default class Landing extends Component {
 		this.state.session = id || '';
 	}
 
+	componentDidMount() {
+		let { isHydrated, user, id, fetchSession } = this.props;
+
+		if (!isHydrated && !user && id) {
+			fetchSession(id);
+		}
+	}
 	onChange(e) {
 		this.setState({ session: e.target.value});
 	}
