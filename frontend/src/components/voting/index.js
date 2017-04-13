@@ -3,6 +3,7 @@ import style from './style';
 import LiveIssueCard from '../../containers/liveIssueCard';
 import VotingUsers from '../../containers/votingUsers';
 import VotingPanelContainer from '../../containers/votingPanelContainer';
+import Share from './share';
 
 export default class Voting extends Component {
 	render() {
@@ -13,6 +14,7 @@ export default class Voting extends Component {
 						<LiveIssueCard />
 						<VotingUsers />
 						<VotingPanelContainer />
+						<Share />
 					</div>
 				</div>
 			</div>
