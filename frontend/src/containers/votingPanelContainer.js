@@ -1,5 +1,5 @@
 import { connect } from 'preact-redux';
-import { vote } from '../actions';
+import { vote, remove_user } from '../actions';
 import VotingPanel from '../components/voting/votingPanel';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		voteClick: (userId, value) => {
 			dispatch(vote(userId, value));
-		}
+		},
+		removeUser: (id) => dispatch(remove_user(id))
 	};
 };
 

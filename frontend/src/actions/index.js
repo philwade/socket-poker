@@ -6,6 +6,7 @@ export const UPDATE_ISSUE = 'UPDATE_ISSUE';
 export const TOGGLE_VOTE_VISIBILITY = 'TOGGLE_VOTE_VISIBLITY';
 export const CLEAR_VOTES = 'CLEAR_VOTES';
 export const ADD_USER = 'ADD_USER';
+export const REMOVE_USER = 'REMOVE_USER';
 // Set who we are
 export const SET_USER = 'SET_USER';
 // receive state from the server
@@ -43,6 +44,13 @@ export const add_user = (name, id) => {
 	return {
 		type: ADD_USER,
 		name,
+		userId: id
+	};
+};
+
+export const remove_user = (id) => {
+	return {
+		type: REMOVE_USER,
 		userId: id
 	};
 };
