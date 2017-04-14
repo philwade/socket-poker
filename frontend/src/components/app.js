@@ -7,6 +7,7 @@ import pokerApp from '../reducers';
 
 import Header from './header';
 import Voting from './voting';
+import About from './about';
 import LiveLanding from '../containers/liveLanding';
 import { createActionDistributor } from '../lib/createActionDistributor';
 
@@ -49,6 +50,7 @@ export default class App extends Component {
 					<Router onChange={this.handleRoute}>
 						<LiveLanding path="/session/:session_id" />
 						<LiveLanding path="/" />
+						<About path="/about" />
 					</Router>
 				</Provider>
 			</div>

@@ -10,9 +10,7 @@ export default class Header extends Component {
 					<div class="nav-wrapper">
 						<a href="/" class="brand-logo">Socket Poker</a>
 						<ul id="nav-mobile"  class="right hide-on-med-and-down">
-							<Link href="/">Home</Link>
-							<Link href="/profile">Me</Link>
-							<Link href="/profile/john">John</Link>
+							<Link href="/about">About</Link>
 						</ul>
 					</div>
 				</nav>
