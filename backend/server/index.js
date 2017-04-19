@@ -3,6 +3,7 @@ import SocketIO from 'socket.io';
 import express from 'express';
 import { createStore } from 'redux';
 import pokerApp from '../reducers';
+import { remove_user } from '../actions';
 
 import monk from 'monk';
 
@@ -38,17 +39,23 @@ app.post('/session', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-	console.log('client connect');
+	let userId, sessionId;
+	console.log('client connect: ' + socket.id);
 
 	socket.on('join', (id) => {
 		console.log('joining room: ' + id);
+		sessionId = id;
 		socket.join(id);
+	});
+
+	socket.on('setuser', (id) => {
+		userId = id;
 	});
 
 	socket.on('action', (action) => {
 		console.log('got action ' + action.type + ' with session id: ' + action.id);
 
-		sessions.findById(action.id, (err, doc) => {
+		sessions.findOne({ _id: action.id }).then((doc) => {
 			doc.id = doc._id;
 			let store = createStore(pokerApp, doc);
 			store.subscribe(() => {
@@ -60,6 +67,11 @@ io.on('connection', (socket) => {
 
 		let emit_action = Object.assign({}, action, {distributed: true});
 		socket.broadcast.to(action.id).emit('action', emit_action);
+	});
+
+	socket.on('disconnect', () => {
+		console.log('emitting remove user: ' + userId + ' to session: ' + sessionId);
+		socket.broadcast.to(sessionId).emit('action', remove_user(userId));
 	});
 });
 
