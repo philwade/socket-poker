@@ -3987,9 +3987,9 @@ preact-compat@^1.6.1:
     preact-svg "^1.6.0"
     proptypes "^0.14.3"
 
-preact-redux@^1.0.1:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/preact-redux/-/preact-redux-1.2.0.tgz#275151431f9039279682e52c508d2655b792cb5a"
+preact-redux@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/preact-redux/-/preact-redux-2.0.1.tgz#e60df461b1a287f92ad7988fce1fdaffa5e3842e"
 
 preact-render-to-string@^2.6.1:
   version "2.8.0"
@@ -4005,11 +4005,7 @@ preact-svg@^1.6.0:
   optionalDependencies:
     preact "*"
 
-preact@*:
-  version "4.8.0"
-  resolved "https://registry.npmjs.org/preact/-/preact-4.8.0.tgz#4d0eebaab485255603fd4de8fdb1c22a80997844"
-
-preact@^8.1.0:
+preact@*, preact@^8.1.0:
   version "8.1.0"
   resolved "https://registry.npmjs.org/preact/-/preact-8.1.0.tgz#f035b808eebb74e46d56246b02ca0f190b6d6574"
 
@@ -4222,7 +4218,7 @@ redux-thunk@^2.1.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
-redux@^3.5.2:
+redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
