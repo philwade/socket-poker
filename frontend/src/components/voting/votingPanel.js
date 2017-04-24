@@ -3,8 +3,8 @@ import { h, Component } from 'preact';
 class VotingPanel extends Component {
 
 	render({ voteValues, userId, voteClick }) {
-		let votes = voteValues.map((value, index) => {
-			return <a key={index} onClick={() => voteClick(userId, value)} className="waves-effect waves-light btn">{value}</a>;
+		let votes = Object.keys(voteValues).map((key, index) => {
+			return <a key={index} onClick={() => voteClick(userId, voteValues[key])} className="waves-effect waves-light btn">{key}</a>;
 		});
 		return (
 			<div className="votingPanel">
