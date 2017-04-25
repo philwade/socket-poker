@@ -12,8 +12,8 @@ export default class Voting extends Component {
 				<div class="row">
 					<div class="col s8 offset-s2">
 						<IssueCard />
-						<VotingUsers />
 						<VotingPanelContainer />
+						<VotingUsers />
 						<Share />
 					</div>
 				</div>
