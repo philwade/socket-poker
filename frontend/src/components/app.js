@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'preact-redux';
 import thunkMiddleWare from 'redux-thunk';
 import pokerApp from '../reducers';
@@ -16,10 +16,13 @@ import io from 'socket.io-client';
 let socket = io('', {path: '/api/socket'});
 let actionDistributor = createActionDistributor(socket);
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(pokerApp,
-	applyMiddleware(
-		thunkMiddleWare,
-		actionDistributor
+	composeEnhancers(
+		applyMiddleware(
+			thunkMiddleWare,
+			actionDistributor
+		)
 	)
 );
 

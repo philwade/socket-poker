@@ -7,7 +7,7 @@ const mapStateToProps = (state) => (
 );
 
 const Share = ({ id }) => (
-	<div>
+	<div class="collection-item cyan darken-3">
 		Send your friends this url to join this session: {window.location.host}/session/{ id }
 	</div>
 );

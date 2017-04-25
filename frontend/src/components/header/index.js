@@ -8,7 +8,7 @@ export default class Header extends Component {
 			<header class={style.header}>
 				<nav>
 					<div class="nav-wrapper">
-						<a href="/" class="brand-logo">Socket Poker</a>
+						<a href="/" class={`brand-logo ${style.logo}`}>Socket Poker</a>
 						<ul id="nav-mobile"  class="right hide-on-med-and-down">
 							<Link href="/about">About</Link>
 						</ul>

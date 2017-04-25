@@ -39,6 +39,7 @@ export default class Landing extends Component {
 							<p>To get started create a new session or join one.</p>
 							<p><a class="waves-effect waves-light btn"
 								onClick={() => createSession()}><i class="material-icons left">play_arrow</i>Start a new session</a></p>
+							<br></br>
 							<p>
 								<a class="waves-effect waves-light btn"
 									onClick={() => fetchSession(this.state.session)}>
@@ -47,7 +48,7 @@ export default class Landing extends Component {
 								</a>
 								<input type="text" value={this.state.session}
 									onChange={(e) => this.onChange(e)}
-									placeholder="Enter a session Id"/>
+									placeholder="Enter a session id"/>
 							</p>
 						</div>
 					</div>
