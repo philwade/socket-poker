@@ -10,8 +10,8 @@ let defaults = {
 	'20': 20,
 	'40': 40,
 	'100': 100,
-	'?': 0,
-	'💯': 100
+	'?': '?',
+	'💯':'💯'
 };
 
 const voteValues = (values = defaults, action) => {
