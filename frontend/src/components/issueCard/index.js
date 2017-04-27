@@ -3,7 +3,7 @@ import { connect } from 'preact-redux';
 import { update_issue, toggle_vote_visibility, clear_votes } from '../../actions';
 
 const IssueCard = ({ saveIssue, toggleVotes, votesVisible, clearVotes, votes, issue }) => {
-	let consensus = (!!votes.reduce((a, b) => (a === b) ? a : false) && votesVisible) &&
+	let consensus = votes[0] && (!!votes.reduce((a, b) => (a === b) ? a : false) && votesVisible) &&
 				<div class="row">
 					<h4 class="light-green-text">Consensus!</h4>
 				</div>;
@@ -46,6 +46,7 @@ const mapStateToProps = (state) => {
 		votesVisible: state.voteVisibility,
 		votes: state.users
 			.map((user) => user.vote)
+			.filter((vote) => !isNaN(parseFloat(vote)) && isFinite(vote))
 			.sort((a, b) => a > b)
 	};
 };
